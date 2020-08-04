@@ -27,18 +27,21 @@ export default class Category extends Component {
         <br/>
         <center>
         <h3>เพิ่ม Category</h3>
-      
-            <tr>
-                <td>
-                    <MDBInput label="รหัส Category" group type="text" success="right" outline/>
-                </td>
-                <td>
+        <table>
+        <tr>
+             <th>  
+               <MDBInput label="รหัส Category" group type="text" success="right" outline/>
+              </th>
+  
+             <th>  
                     <MDBInput label="ชื่อ Category" group type="text" success="right" outline/>
-                </td>
-                <td>
+                    </th>
+    
+             <th> 
                     <MDBBtn color="success">เพิ่ม</MDBBtn>
-                </td>
-            </tr>
+                    </th>
+        </tr>
+            </table>
        <br/>
         </center>
         

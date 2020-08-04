@@ -28,10 +28,12 @@ export default class Order extends Component {
         <center>
         <h3>เพิ่มสินค้าภายใน Branch </h3>
      
+     <table>
             <tr>
                 <td>
                     <MDBInput label="รหัสสินค้า" group type="text" success="right" outline/>
                 </td>
+                
                 <td>
                     <select className="browser-default custom-select">
                         <option>เลือกสาขา</option>
@@ -47,6 +49,7 @@ export default class Order extends Component {
                     <MDBBtn color="success">เพิ่ม</MDBBtn>
                 </td>
             </tr>
+            </table>
        <br/>
         </center>
         

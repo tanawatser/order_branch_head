@@ -117,3 +117,15 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
+
+  .dropdown-menu {
+    background-color:#00bcd1 !important;
+  }
+
+  .dropdown-item {
+    color: #fff !important;
+  }
+
+  .dropdown-item:focus, .dropdown-item:hover {
+    background-color: rgb(0, 0, 0) !important;
+  }

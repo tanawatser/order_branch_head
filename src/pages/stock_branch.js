@@ -27,7 +27,7 @@ export default class Stock extends Component {
         <br/>
         <center>
         <h3>เพิ่ม Stock Branch</h3>
-     
+        <table>
             <tr>
                 <td>
                     <MDBInput label="รหัสสาขา" group type="text" success="right" outline />
@@ -42,6 +42,7 @@ export default class Stock extends Component {
                     <MDBBtn color="success">เพิ่ม</MDBBtn>
                 </td>
             </tr>
+            </table>
         <br/>
         </center>
         

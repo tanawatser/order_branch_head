@@ -54,12 +54,19 @@
 
       #classicformpage  .img-logo {
        display: none;
+      
       }
 
       #classicformpage  .btn-blue-grey {
         background: #9ACCD1 !important;
+        color: #000;
        
        }
+
+       #classicformpage .container {
+         height: 100% !important;
+       }
+       
   }
 
 
@@ -79,4 +86,16 @@ position: absolute;
   margin-top: 3rem!important
 }
 
+}
+
+
+.img-logo {
+  width: 350px;
+  position: fixed;
+  top:50px;
+  
+}
+
+#classicformpage .container {
+  height: 50%;
 }
