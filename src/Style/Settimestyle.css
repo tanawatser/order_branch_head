@@ -1,3 +1,18 @@
-.box-time {
-    margin-top: 0rem;
+.box-settime {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+ 
+}
+
+.btn-time {
+    position: absolute;
+    right: 0px;
+}
+
+.text-date {
+    margin-right: 5rem;
 }

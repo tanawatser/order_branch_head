@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import JqxDateTimeInput from "jqwidgets-scripts/jqwidgets-react-tsx/jqxdatetimeinput";
-import "../Style/Settimestyle.css"
+import "../Style/Settimestyle.css";
 export default class Stock extends React.Component {
   constructor(props) {
     super(props);
@@ -9,49 +9,74 @@ export default class Stock extends React.Component {
   render() {
     return (
       <>
-      <center>
+        <h1>Set time</h1>
+        <center>
+          <div class="box-settime">
+            <table> 
+              <tr>
+                <th>
+                  {" "}
+                  <label class="text-date">เปิดใช้งาน</label>
+                </th>
 
-      <h1>Set time</h1>
-        <table>
-          <tr>
-            <th>
-              <label>วันที่เปิด</label>
-              <JqxDateTimeInput width={320} height={25} />
-              <br />
-            </th>
-            <th>
-              <label>เวลาที่เปิด</label>
-              <JqxDateTimeInput
-                width={320}
-                height={30}
-                formatString={"T"}
-                showTimeButton={true}
-                showCalendarButton={false}
-              />
-              <br />
-            </th>
-          </tr>
+                <th>
+                  {" "}
+                  <JqxDateTimeInput
+                    width={200}
+                    height={40}
+                    textAlign={"center"}
+                  />
+                </th>
 
-          <tr>
-            <th>
-              <label>วันที่ปิด</label>
-              <JqxDateTimeInput width={320} height={25} />
+                <th>
+                  <JqxDateTimeInput
+                    width={200}
+                    height={40}
+                    formatString={"T"}
+                    showTimeButton={true}
+                    showCalendarButton={false}
+                    textAlign={"center"}
+                  />
+                </th>
+              </tr>
+
               <br />
-            </th>
-            <th>
-              <label>เวลาที่ปิด</label>
-              <JqxDateTimeInput
-                width={320}
-                height={30}
-                formatString={"T"}
-                showTimeButton={true}
-                showCalendarButton={false}
-              />
+              <tr>
+                <th>
+                  {" "}
+                  <label class="text-date">ปิดใช้งาน</label>
+                </th>
+
+                <th>
+                  {" "}
+                  <JqxDateTimeInput
+                    width={200}
+                    height={40}
+                    textAlign={"center"}
+                  />
+                </th>
+
+                <th>
+                  <JqxDateTimeInput
+                    width={200}
+                    height={40}
+                    formatString={"T"}
+                    showTimeButton={true}
+                    showCalendarButton={false}
+                    textAlign={"center"}
+                  />
+                </th>
+              </tr>
               <br />
-            </th>
-          </tr>
-        </table>
-       
+              <tr>
+                <th>
+                  <MDBBtn className="btn-time">ตกลง</MDBBtn>
+                </th>
+                
+              </tr>
+
+            </table>
+          </div>
         </center>
       </>
     );
