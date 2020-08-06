@@ -13,13 +13,18 @@ export default class Main extends Component {
     this.state = { time: new Date() };
   }
 
-  componentWillMount() {
-    setInterval(() => {
-      this.setState({
-        time: new Date().getHours() +':'+ new Date().getMinutes() +':'+ new Date().getSeconds(),
-      });
-    }, 1000);
-  }
+  currentTime()
+  {
+      this.setState ({
+          time: new Date()
+      })
+}
+
+componentWillMount()
+{
+  setInterval(()=>this.currentTime(),1000)
+}
+
 
   render() {
     return (
@@ -32,7 +37,7 @@ export default class Main extends Component {
               </tr>
 
               <tr>
-              <th class="time-home"> เวลา {this.state.time.toString()} น. </th>
+              <th class="time-home">{this.state.time.toLocaleTimeString()} </th>
              </tr>
           </table>
         </div>

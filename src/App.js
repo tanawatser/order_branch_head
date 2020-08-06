@@ -20,6 +20,8 @@ import {
   MDBIcon,
   MDBFooter,
   MDBContainer,
+  MDBNavbarToggler,
+  MDBCollapse
 } from "mdbreact";
 
 export default class App extends Component {
@@ -27,14 +29,19 @@ export default class App extends Component {
     super(props);
     this.Auth = new Auth();
   }
-
+  state = {
+    isOpen: false
+  };
+  toggleCollapse = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
   render() {
     return (
       <>
         <Router>
           {localStorage.getItem("access") ? (
             <div>
-              <MDBNavbar color="cyan darken-1" dark expand="sm">
+              <MDBNavbar color="cyan darken-1" dark expand="md">
                 <MDBNavbarBrand>
                   <img src={Logo} alt="" width="60px" />
                 </MDBNavbarBrand>
@@ -43,13 +50,15 @@ export default class App extends Component {
                     Branch Order [ ส่วนของจัดซื้อ ]
                   </strong>
                 </MDBNavbarBrand>
+                <MDBNavbarToggler onClick={this.toggleCollapse} />
+        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                 <MDBNavbarNav right>
                   <MDBNavItem>
                     <MDBNavLink to="#!">สวัสดี ,</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <div style={{ color: "white" }}>
-                      <MDBIcon icon="user" size="3x" />
+                      <MDBIcon icon="user" size="2x" />
                     </div>
                   </MDBNavItem>
                   <MDBNavItem>
@@ -79,6 +88,7 @@ export default class App extends Component {
                     </MDBDropdown>
                   </MDBNavItem>
                 </MDBNavbarNav>
+                </MDBCollapse>
               </MDBNavbar>
               <MDBNavbar
                 color="cyan darken-1"

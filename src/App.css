@@ -42,3 +42,17 @@ font-family: 'K2D', sans-serif;
   }
 }
 
+.navbar.navbar-dark .navbar-toggler-icon {
+  background-image: url('../src/assets/nav-icon.png') !important;
+  width: 33px;
+  height: 35px;
+
+}
+
+@media (max-width: 692px){
+  .fa-user  {
+    display: none !important;
+
+  }
+
+}
