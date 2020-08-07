@@ -41,7 +41,7 @@ export default class App extends Component {
         <Router>
           {localStorage.getItem("access") ? (
             <div>
-              <MDBNavbar color="cyan darken-1" dark expand="md">
+              <MDBNavbar color="cyan darken-1" dark expand="lg">
                 <MDBNavbarBrand>
                   <img src={Logo} alt="" width="60px" />
                 </MDBNavbarBrand>
@@ -53,18 +53,23 @@ export default class App extends Component {
                 <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                 <MDBNavbarNav right>
+                    
+                <MDBNavItem>
+                    <div style={{ color: "white"}}>
+                    <img className="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="40"/>
+                    </div>
+                  </MDBNavItem>
+                  &nbsp;&nbsp;&nbsp;
+               
                   <MDBNavItem>
                     <MDBNavLink to="#!">สวัสดี ,</MDBNavLink>
                   </MDBNavItem>
-                  <MDBNavItem>
-                    <div style={{ color: "white" }}>
-                      <MDBIcon icon="user" size="2x" />
-                    </div>
-                  </MDBNavItem>
+             
                   <MDBNavItem>
                     <MDBDropdown>
-                      <MDBDropdownToggle nav style={{ width: "200px" }}>
-                        <span className="mr-2">
+                      <MDBDropdownToggle nav caret style={{ width: "220px" }}>
+                        <span className="mr-2" >
+                          
                           {this.Auth.getProfile().fullname}
                         </span>
                       </MDBDropdownToggle>
@@ -90,10 +95,11 @@ export default class App extends Component {
                 </MDBNavbarNav>
                 </MDBCollapse>
               </MDBNavbar>
+              
               <MDBNavbar
                 color="cyan darken-1"
                 dark
-                expand="sm"
+                expand="md"
                 style={{ height: "30px" }}
               >
                 <MDBNavbarNav left>
