@@ -11,7 +11,7 @@ import Branch_limit from './pages/branch_limit'
 import Product_limit from './pages/product_limit'
 import Category from './pages/category'
 import Stock from './pages/stock_branch'
-import Settime from './pages/settime'
+import Settingtime from './pages/Settingtime'
 import Listorder from "./pages/list_order"
 
 export default class Routes extends React.Component {
@@ -26,7 +26,7 @@ export default class Routes extends React.Component {
         <Route exact path='/product-limit' component={Product_limit} />
         <Route exact path='/category' component={Category} />
         <Route exact path='/stock' component={Stock} />
-        <Route exact path='/time' component={Settime} />
+        <Route exact path='/time' component={Settingtime} />
         <Route exact path='/listorder' component={Listorder} />
         <Route
           render={function() {

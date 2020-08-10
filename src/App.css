@@ -58,3 +58,20 @@ font-family: 'K2D', sans-serif;
   }
 }
 
+
+
+.subnav{
+  position: relative !important;
+  display: contents !important;
+  align-items: left !important;
+  justify-content: flex-start !important;
+
+}
+
+@media (max-width:575px) {
+  .subnav{
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  }

@@ -16,3 +16,13 @@
 .text-date {
     margin-right: 5rem;
 }
+
+.container {
+    width: 50%;
+    display: grid;
+    justify-items: center;
+
+}
+label {
+    align-items: center;
+}
