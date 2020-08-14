@@ -10,6 +10,7 @@ import {
 
 import '../Style/Settimestyle.css'
 // import Settingtime from '../pages/'
+import { MDBBtn } from "mdbreact";
 
 export default function Settingtime() {
   const [selectedDate, setSelectedDate] = React.useState(
@@ -21,6 +22,9 @@ export default function Settingtime() {
   };
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <br />
+          <br />
+
         <div class="container" >
       <Grid container justify="space-around">
         <label>เปิดใช้งาน</label>
@@ -48,6 +52,8 @@ export default function Settingtime() {
         />
       </Grid>
       </div>
+          <br />
+          <br />
 
       <div class="container" >
       <Grid container justify="space-around">
@@ -75,7 +81,15 @@ export default function Settingtime() {
           }}
         />
       </Grid>
+      <div class="btn-settime">
+         <MDBBtn color="success">ยืนยัน</MDBBtn>
+         <MDBBtn color="danger">ยกเลิก</MDBBtn>
+      </div> 
+
+
+
       </div>
     </MuiPickersUtilsProvider>
+    
   );
 }

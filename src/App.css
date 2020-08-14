@@ -1,6 +1,6 @@
-*{
-  font-family: 'Meera Inimai', sans-serif;
-font-family: 'K2D', sans-serif;
+* {
+  font-family: "Meera Inimai", sans-serif;
+  font-family: "K2D", sans-serif;
 }
 
 .App {
@@ -43,35 +43,40 @@ font-family: 'K2D', sans-serif;
 }
 
 .navbar.navbar-dark .navbar-toggler-icon {
-  background-image: url('https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg') !important;
+  background-image: url("https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg") !important;
   width: 50px;
   height: 50px;
   border-radius: 100%;
-
 }
 
-@media (max-width: 994px){
+@media (max-width: 994px) {
   /* profile image */
   .rounded-circle {
     display: none !important;
-
   }
 }
 
-
-
-.subnav{
+.subnav {
   position: relative !important;
-  display: contents !important;
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
   align-items: left !important;
   justify-content: flex-start !important;
-
 }
 
-@media (max-width:575px) {
-  .subnav{
+@media (max-width: 575px) {
+  .subnav {
     position: relative !important;
     display: grid !important;
     grid-template-columns: repeat(6, 1fr);
   }
+}
+
+@media (max-width: 800px) {
+  .MuiGrid-container {
+    width: 100%;
+    display: contents !important;
+    flex-wrap: wrap !important;
+    box-sizing: border-box;
   }
+}

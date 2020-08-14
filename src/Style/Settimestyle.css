@@ -1,28 +1,43 @@
-.box-settime {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
- 
-}
-
-.btn-time {
-    position: absolute;
-    right: 0px;
-}
 
 .text-date {
     margin-right: 5rem;
 }
 
 .container {
-    width: 50%;
+    height: 200px;
+    position: relative;
     display: grid;
+    row-gap: 70px;
     justify-items: center;
-
+    align-items: center;
 }
 label {
-    align-items: center;
+
+}
+
+.MuiPickersToolbar-toolbar {
+    background-color: #00bcd4 !important;
+}
+
+.MuiPickersDay-daySelected {
+    background-color: #00bcd4 !important;
+
+}
+
+.MuiPickersClockPointer-pointer {
+    background-color: #00bcd4 !important;
+
+
+}
+.MuiPickersClockPointer-thumb {
+    border :14px solid #00bcd4 !important;
+}
+
+.MuiButton-textPrimary {
+    color: #00bcd4 !important;
+}
+
+.MuiFormControl-marginNormal {
+    margin-top: -20px !important;
+
 }

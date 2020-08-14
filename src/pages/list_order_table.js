@@ -49,7 +49,7 @@ export default class list_order_table extends Component {
                 cellsrenderer: () => {
                   return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-check" aria-hidden="true"></i></button></div><div>';
                 },
-                width: "5%",
+                width: "4%",
                 editable: false,
                 sortable: false,
                 filterable: false,
@@ -62,7 +62,7 @@ export default class list_order_table extends Component {
                 cellsrenderer: () => {
                   return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
                 },
-                width: "4%",
+                width: "5%",
                 editable: false,
                 sortable: false,
                 filterable: false,
