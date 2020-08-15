@@ -30,21 +30,21 @@ export default class List_table extends Component {
             cellsrenderer: () => {
               return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
              
-            },width: "5%",
+            },width: "4%",
             editable: false,
             sortable: false,
             filterable: false,
             align: "center",},
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '40%', align: 'center',cellsalign:'left',editable:false},
+            { text:'ชื่อสินค้า',datafield:'product_name', width: '42%', align: 'center',cellsalign:'left',editable:false},
             { text:'ประเภทสินค้า',datafield:'product_type', width: '20%', align: 'center',cellsalign:'center',editable:false},
             { text:'จำนวนที่สั่งซื้อ',datafield:'product_buy', width: '15%', align: 'center',cellsalign:'center',editable:false,filterable: false},
             {text: "ลดจำนวนสินค้า",
             datafield: "del",
             cellsrenderer: () => {
-              return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
+              return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i> </button></div><div>';
             },
-            width: "5%",
+            width: "4%",
             editable: false,
             sortable: false,
             filterable: false,

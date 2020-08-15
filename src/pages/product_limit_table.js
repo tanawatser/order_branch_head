@@ -22,7 +22,7 @@ export default class Table extends Component {
     this.state = {
         columns:[
             { text:'รหัสสินค้า',datafield:'product_id', width: '25%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '45%', align: 'center',cellsalign:'left',editable:false},
+            { text:'ชื่อสินค้า',datafield:'product_name', width: '46%', align: 'center',cellsalign:'left',editable:false},
             { text:'จำนวนในการสั่งสูงสุด',datafield:'product_count', width: '25%', align: 'center',cellsalign:'center',editable:false},
             {
               text: "แก้ไข",
@@ -31,7 +31,7 @@ export default class Table extends Component {
               cellsrenderer: () => {
                 return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-cogs" aria-hidden="true"></i></button></div><div>';
               },
-              width: "5%",
+              width: "4%",
               editable: false,
               sortable: false,
               filterable: false,

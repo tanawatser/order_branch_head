@@ -23,7 +23,7 @@ export default class Table extends Component {
     this.state = {
         columns:[
             { text:'รหัสสาขา',datafield:'branch_id', width: '10%', align: 'center',cellsalign:'center',editable:false},
-            { text:'รหัสกลุ่ม',datafield:'group_id', width: '20%', align: 'center',cellsalign:'center',editable:false},
+            { text:'รหัสกลุ่ม',datafield:'group_id', width: '22%', align: 'center',cellsalign:'center',editable:false},
             { text:'ชื่อกลุ่ม',datafield:'group_name', width: '40%', align: 'center',cellsalign:'left',editable:false},
             { text:'จำนวน',datafield:'qtystock', width: '20%', align: 'center',cellsalign:'center',editable:false},
             {
@@ -33,7 +33,7 @@ export default class Table extends Component {
               cellsrenderer: () => {
                 return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-cogs" aria-hidden="true"></i></button></div><div>';
               },
-              width: "5%",
+              width: "4%",
               editable: false,
               sortable: false,
               filterable: false,
@@ -46,7 +46,7 @@ export default class Table extends Component {
               cellsrenderer: () => {
                 return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
               },
-              width: "5%",
+              width: "4%",
               editable: false,
               sortable: false,
               filterable: false,

@@ -26,7 +26,7 @@ export default class Table extends Component {
             { text:'รหัสสาขา',datafield:'branch_id', width: '10%', align: 'center',cellsalign:'center',editable:false},
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
             { text:'ชื่อสินค้า',datafield:'product_name', width: '40%', align: 'center',cellsalign:'left',editable:false},
-            { text:'ประเภทสินค้า',datafield:'product_type', width: '15%', align: 'center',cellsalign:'center',editable:false},
+            { text:'ประเภทสินค้า',datafield:'product_type', width: '17%', align: 'center',cellsalign:'center',editable:false},
             { text:'จำนวนในการสั่งสูงสุด',datafield:'product_count', width: '10%', align: 'center',cellsalign:'center',editable:false},
             {
               text: "แก้ไข",
@@ -35,7 +35,7 @@ export default class Table extends Component {
               cellsrenderer: () => {
                 return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-cogs" aria-hidden="true"></i></button></div><div>';
               },
-              width: "5%",
+              width: "4%",
               editable: false,
               sortable: false,
               filterable: false,
@@ -48,7 +48,7 @@ export default class Table extends Component {
               cellsrenderer: () => {
                 return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
               },
-              width: "5%",
+              width: "4%",
               editable: false,
               sortable: false,
               filterable: false,

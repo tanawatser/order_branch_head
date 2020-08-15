@@ -30,18 +30,20 @@ export default class Order_table extends Component {
             text: "Image",
             datafield: "img",
             cellsrenderer: () => {
+              
               return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
-              // <img style="margin-left: 5px;" height="60" width="50" src="https://img.advice.co.th/images_nas/advice_activity/201911011332092019.jpg" />
+              
             },
-            width: "5%",
+            width: "4%",
             editable: false,
             sortable: false,
             filterable: false,
             align: "center",
+            
           },
            
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '35%', align: 'center',cellsalign:'left',editable:false},
+            { text:'ชื่อสินค้า',datafield:'product_name', width: '37%', align: 'center',cellsalign:'left',editable:false},
             { text:'ประเภทสินค้า',datafield:'product_type', width: '15%', align: 'center',cellsalign:'center',editable:false},
             
             {
@@ -70,7 +72,7 @@ export default class Order_table extends Component {
               cellsrenderer: () => {
                 return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></div><div>';
               },
-              width: "5%",
+              width: "4%",
               editable: false,
               sortable: false,
               filterable: false,

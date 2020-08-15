@@ -8,7 +8,7 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
-import '../Style/Settimestyle.css'
+import "../Style/Settimestyle.css";
 // import Settingtime from '../pages/'
 import { MDBBtn } from "mdbreact";
 
@@ -22,74 +22,73 @@ export default function Settingtime() {
   };
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <br />
-          <br />
+      <br />
+      <br />
 
-        <div class="container" >
-      <Grid container justify="space-around">
-        <label>เปิดใช้งาน</label>
-        <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="วันที่"
-          format="dd/MM/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            "aria-label": "change date",
-          }}
-        />
+      <div class="container">
+        <Grid container justify="space-around">
+          <label>เริ่มต้นการสั่งสินค้า</label>
+          <KeyboardDatePicker
+            margin="normal"
+            id="date-picker-dialog"
+            label="วันที่"
+            format="dd/MM/yyyy"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+            }}
+          />
 
-        <KeyboardTimePicker
-          margin="normal"
-          id="time-picker"
-          label="เวลา"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            "aria-label": "change time",
-          }}
-        />
-      </Grid>
+          <KeyboardTimePicker
+            margin="normal"
+            id="time-picker"
+            label="เวลา"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change time",
+            }}
+          />
+        </Grid>
       </div>
-          <br />
-          <br />
 
-      <div class="container" >
-      <Grid container justify="space-around">
-        <label>ปิดใช้งาน</label>
-        <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="วันที่"
-          format="dd/MM/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            "aria-label": "change date",
-          }}
-        />
+      <br />
+      <br />
+      <br />
+      <br />
 
-        <KeyboardTimePicker
-          margin="normal"
-          id="time-picker"
-          label="เวลา"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            "aria-label": "change time",
-          }}
-        />
-      </Grid>
-      <div class="btn-settime">
-         <MDBBtn color="success">ยืนยัน</MDBBtn>
-         <MDBBtn color="danger">ยกเลิก</MDBBtn>
-      </div> 
+      <div class="container">
+        <Grid container justify="space-around">
+          <label>สิ้นสุดการสั่งสินค้า</label>
+          <KeyboardDatePicker
+            margin="normal"
+            id="date-picker-dialog"
+            label="วันที่"
+            format="dd/MM/yyyy"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+            }}
+          />
 
-
-
+          <KeyboardTimePicker
+            margin="normal"
+            id="time-picker"
+            label="เวลา"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              "aria-label": "change time",
+            }}
+          />
+        </Grid>
+        <div class="btn-settime">
+          <MDBBtn color="success">ยืนยัน</MDBBtn>
+          <MDBBtn color="danger">ยกเลิก</MDBBtn>
+        </div>
       </div>
     </MuiPickersUtilsProvider>
-    
   );
 }
