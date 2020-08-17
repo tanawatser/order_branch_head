@@ -3,6 +3,8 @@ import JqxGrid, { jqx } from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxgrid';
 import "jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
+import "../Style/Orderstyle.css"
+
 
 export default class Order_table extends Component {
   constructor(props){
@@ -17,7 +19,7 @@ export default class Order_table extends Component {
             { name:'product_name', type:'string'},
             { name:'product_type', type:'string'},
             { name:'product_stock', type:'number'},
-            { name: "product_limit", type: "number" },
+            { name: 'product_limit', type: 'number' },
      
 
         ],
@@ -31,10 +33,10 @@ export default class Order_table extends Component {
             datafield: "img",
             cellsrenderer: () => {
               
-              return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
+              return '<div class="container"><div class="center"><button class="btn" style="width:190px"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
               
             },
-            width: "4%",
+            width: "5%",
             editable: false,
             sortable: false,
             filterable: false,
@@ -43,7 +45,7 @@ export default class Order_table extends Component {
           },
            
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '37%', align: 'center',cellsalign:'left',editable:false},
+            { text:'ชื่อสินค้า',datafield:'product_name', width: '35%', align: 'center',cellsalign:'left',editable:false},
             { text:'ประเภทสินค้า',datafield:'product_type', width: '15%', align: 'center',cellsalign:'center',editable:false},
             
             {
@@ -70,9 +72,9 @@ export default class Order_table extends Component {
               datafield: "buy",
          
               cellsrenderer: () => {
-                return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></div><div>';
+                return '<div class="container"><div class="center"><button class="btn" style="width:190px"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></div><div>';
               },
-              width: "4%",
+              width: "5%",
               editable: false,
               sortable: false,
               filterable: false,
@@ -88,8 +90,20 @@ export default class Order_table extends Component {
 
   onCellclick = (e) => {
     if(e.args.datafield==='buy'){
-      alert('Buy');
-      console.log(e.args.row.bounddata);
+      // alert('Buy');
+      console.log(e.args.row.bounddata.product_stock);
+      let buyProduct =e.args.row.bounddata.product_stock;
+
+      if (buyProduct ===0) {
+        let remainStock = buyProduct;
+        this.myGrid.current.setcellvalue(e.args.rowindex,'product_stock',remainStock)
+        alert('สินค้าหมด')
+       
+      } else if (buyProduct) {
+        let remainStock = buyProduct-1
+        this.myGrid.current.setcellvalue(e.args.rowindex,'product_stock',remainStock)
+        
+      }
 
     }else if(e.args.datafield==='img'){
 

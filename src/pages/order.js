@@ -12,10 +12,7 @@ export default class Order extends Component {
         { branch_id:524, product_id:'0320550472',product_name:'16GB (8GBx2) DDR4/3200 RAM PC (แรมพีซี) ',product_type:'RAM For PC',product_stock:5},
         { branch_id:136, product_id:'2310392949',product_name:'POWER SUPPLY (อุปกรณ์จ่ายไฟ) ANTEC 650W ATOM B650 (80+ BRONZE)',product_type:'Power Supply',product_stock:7},
         { branch_id:18, product_id:'3008526218',product_name:'VGA (การ์ดแสดงผล) MSI GTX1660 VENTUS XS 6G OC ',product_type:'Graphic Card',product_stock:8},
-
         { branch_id:18, product_id:'3008526218',product_name:'VGA (การ์ดแสดงผล) MSI GTX1660 VENTUS XS 6G OC ',product_type:'Graphic Card',product_stock:8},
-
-        
       ]
     }
 

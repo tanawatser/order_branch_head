@@ -4,6 +4,8 @@ import "jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
 
+import '../Style/Configtable.css'
+
 export default class ConfigTable extends Component {
   constructor(props){
     super(props);
@@ -31,7 +33,7 @@ export default class ConfigTable extends Component {
               datafield: "check",
          
               cellsrenderer: () => {
-                return '<div class="container"><div class="center"><input type="checkbox"></div><div>';
+                return '<div class="container"><div class="switch"><input type="checkbox"> <span class="slider round"></span></div><div>';
               },
               width: "20%",
               editable: false,
