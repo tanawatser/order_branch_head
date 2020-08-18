@@ -45,13 +45,13 @@ export default class Order_table extends Component {
           },
            
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '35%', align: 'center',cellsalign:'left',editable:false},
+            { text:'ชื่อสินค้า',datafield:'product_name', width: '40%', align: 'center',cellsalign:'left',editable:false},
             { text:'ประเภทสินค้า',datafield:'product_type', width: '15%', align: 'center',cellsalign:'center',editable:false},
             
             {
               text: "สินค้าในสต็อค",
               datafield: "product_stock",
-              width: "15%",
+              width: "10%",
               align: "center",
               cellsalign: "center",
               editable: false,

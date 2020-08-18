@@ -33,7 +33,7 @@ export default class ConfigTable extends Component {
               datafield: "check",
          
               cellsrenderer: () => {
-                return '<div class="container"><div class="switch"><input type="checkbox"> <span class="slider round"></span></div><div>';
+                 return '<div class="box-toggle"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div>';
               },
               width: "20%",
               editable: false,
@@ -51,23 +51,22 @@ export default class ConfigTable extends Component {
   }
 
   onCellclick = (e) => {
-    if(e.args.datafield==='edit'){
-      alert('edit');
-      console.log(e.args.row.bounddata);
+    if(e.args.datafield ==='check'){
+     
+      // console.log(e.args.row.bounddata);
+      let checkStatus = e.args.row.bounddata.status
+      if (checkStatus ==='เปิด') {
+      let newStatus = 'ปิด'
+      this.myGrid.current.setcellvalue(e.args.rowindex,'status',newStatus);
 
-    }else if(e.args.datafield==='confirm'){
+      }else {
+      let newStatus = 'เปิด'
+      this.myGrid.current.setcellvalue(e.args.rowindex,'status',newStatus);
 
-      alert('confirm');
-
-    }else if(e.args.datafield==='delete'){
-
-      alert('delete');
-      
-    }else if(e.args.datafield==='pic'){
-      
-    }
-
+      }
   }
+}
+  
   render(){
     return (
       <>
@@ -77,27 +76,21 @@ export default class ConfigTable extends Component {
                     width='50%'
                     height="500px"
                     source={this.state.source}
-
                     pageable={true}
                     pagesize={20}
-
                     autoheight={false}
-
                     columns={this.state.columns}
                     theme="material"
-
                     editable={false}
                     enabletooltips={false}
                     selectionmode={'singlecell'}
                     editmode={'click'}
                     columnsresize={false}
                     sortable={true}
-
                     filterable={true}
                     showfilterrow={true}
-
                     onCellclick={this.onCellclick}
-            rowsheight={40}
+                    rowsheight={40}
 
                 />
         </center>

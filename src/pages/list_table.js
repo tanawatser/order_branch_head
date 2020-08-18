@@ -26,7 +26,7 @@ export default class List_table extends Component {
         columns:[
           {
             text: "Image",
-            datafield: "pic",
+            datafield: "img",
             cellsrenderer: () => {
               return '<div class="container"><div class="center"><button class="btn" style="width:190px"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
              
@@ -36,15 +36,27 @@ export default class List_table extends Component {
             filterable: false,
             align: "center",},
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '41%', align: 'center',cellsalign:'left',editable:false},
-            { text:'ประเภทสินค้า',datafield:'product_type', width: '20%', align: 'center',cellsalign:'center',editable:false},
+            { text:'ชื่อสินค้า',datafield:'product_name', width: '43%', align: 'center',cellsalign:'left',editable:false},
+            { text:'ประเภทสินค้า',datafield:'product_type', width: '15%', align: 'center',cellsalign:'center',editable:false},
             { text:'จำนวนที่สั่งซื้อ',datafield:'product_buy', width: '10%', align: 'center',cellsalign:'center',editable:false,filterable: false},
-            {text: "ลดจำนวนสินค้า",
+            
+          {text: "เพิ่มจำนวนสินค้า",
+            datafield: "add",
+            cellsrenderer: () => {
+              return '<div class="container"><div class="center"><button class="btn"style="width:190px" ><i class="fa fa-plus-square" aria-hidden="true"></i> </button></div><div>';
+            },
+            width: "6%",
+            editable: false,
+            sortable: false,
+            filterable: false,
+            align: "center",
+          },
+          {text: "ลดจำนวนสินค้า",
             datafield: "del",
             cellsrenderer: () => {
-              return '<div class="container"><div class="center"><button class="btn"style="width:190px" ><i class="fa fa-trash" aria-hidden="true"></i> </button></div><div>';
+              return '<div class="container"><div class="center"><button class="btn"style="width:190px" ><i class="fa fa-minus-square" aria-hidden="true"></i> </button></div><div>';
             },
-            width: "9%",
+            width: "6%",
             editable: false,
             sortable: false,
             filterable: false,
@@ -61,26 +73,36 @@ export default class List_table extends Component {
 
     if(e.args.datafield==='del'){
       console.log(e.args);
-      let oldvalue=e.args.row.bounddata.product_buy;
+      let delValue=e.args.row.bounddata.product_buy;
       
-      if(oldvalue===1){
+      if(delValue===0){
 
-        let newvalue=oldvalue-1;
-        this.myGrid.current.setcellvalue(e.args.rowindex,'product_buy',newvalue);
-        alert('ลบรายการสินค้า')
+        let nullValue = delValue;
+        this.myGrid.current.setcellvalue(e.args.rowindex,'product_buy',nullValue);
+        alert('จำนวนสั่งซื้อเป็น 0')
 
-      }else if(oldvalue>1){
+      }else if(delValue){
         
-        let newvalue=oldvalue-1;
-        this.myGrid.current.setcellvalue(e.args.rowindex,'product_buy',newvalue);
+        let nullValue=delValue-1;
+        this.myGrid.current.setcellvalue(e.args.rowindex,'product_buy',nullValue);
 
       }
-
-    }else if(e.args.datafield==='pic'){
-      alert('PIC')
     }
-    
+    if (e.args.datafield==='add'){
+      let addValue=e.args.row.bounddata.product_buy;
+
+      if(addValue >= 0){
+        let plusProduct = addValue+1
+        this.myGrid.current.setcellvalue(e.args.rowindex,'product_buy',plusProduct);
+
+      }else {
+        alert('Not found error');
+      }
   }
+  if (e.args.datafield ==='img'){
+alert('Image')
+  }
+}
   render(){
     return (
       <>
