@@ -20,6 +20,7 @@ export default class Order_table extends Component {
             { name:'product_type', type:'string'},
             { name:'product_stock', type:'number'},
             { name: 'product_limit', type: 'number' },
+            { name: 'product_img'}
      
 
         ],

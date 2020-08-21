@@ -9,6 +9,7 @@ import '../Style/Configtable.css'
 export default class ConfigTable extends Component {
   constructor(props){
     super(props);
+
     this.myGrid = React.createRef(JqxGrid);
 
     const source =
@@ -25,17 +26,18 @@ export default class ConfigTable extends Component {
     };
     this.state = {
         columns:[
-            { text:'รหัสสาขา',datafield:'branch_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสาขา',datafield:'branch_name', width: '45%', align: 'center',cellsalign:'center',editable:false},
-            { text:'สถานะ',datafield:'status', width: '20%', align: 'center',cellsalign:'center',editable:false,sortable:false},
+            { text:'รหัสสาขา',datafield:'branch_id', width: '20%', align: 'center',cellsalign:'center',editable:false},
+            { text:'ชื่อสาขา',datafield:'branch_name', width: '55%', align: 'center',cellsalign:'center',editable:false},
+            // { text:'สถานะการใช้งาน',datafield:'status', width: '20%', align: 'center',cellsalign:'center',editable:false,sortable:false},
             {
-              text: "การใช้งาน",
-              datafield: "check",
+              text: "สถานะการใช้งาน",
+              datafield: "checkStatus",
          
               cellsrenderer: () => {
-                 return '<div class="box-toggle"><label class="switch"><input type="checkbox" checked><span class="slider round"></span></label></div>';
+                return '<div class="box-toggle"><label class="switch"><input type="checkbox" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">ON</span><span class="off">OFF</span><!--END--></div></label></div>';
+              
               },
-              width: "20%",
+              width: "25%",
               editable: false,
               sortable: false,
               filterable: false,
@@ -51,21 +53,22 @@ export default class ConfigTable extends Component {
   }
 
   onCellclick = (e) => {
-    if(e.args.datafield ==='check'){
+    // if(e.args.datafield ==='check'){
      
-      // console.log(e.args.row.bounddata);
-      let checkStatus = e.args.row.bounddata.status
-      if (checkStatus ==='เปิด') {
-      let newStatus = 'ปิด'
-      this.myGrid.current.setcellvalue(e.args.rowindex,'status',newStatus);
+    //   console.log(e.args.row.bounddata);
+    //   let checkStatus = e.args.row.bounddata.status
+    //   let newStatus = 'ปิด'
+    //   if (checkStatus ==='เปิด') {
+    //   this.myGrid.current.setcellvalue(e.args.rowindex,'status',newStatus);
+      
 
-      }else {
-      let newStatus = 'เปิด'
-      this.myGrid.current.setcellvalue(e.args.rowindex,'status',newStatus);
+    //   }else {
+    //   let newStatus = 'เปิด'
+    //   this.myGrid.current.setcellvalue(e.args.rowindex,'status',newStatus);
 
-      }
+    //   }
+  // }
   }
-}
   
   render(){
     return (

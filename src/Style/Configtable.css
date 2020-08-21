@@ -104,14 +104,12 @@ hr.line {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 30px;
+  width: 90px;
+  height: 32px;
 }
 
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  display:none;
 }
 .slider {
   position: absolute;
@@ -130,8 +128,8 @@ hr.line {
   content: "";
   height: 24px;
   width: 24px;
-  left: 3px;
-  bottom: 3px;
+  left: 4px;
+  bottom: 4px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -146,10 +144,37 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(58px);
+  -ms-transform: translateX(58px);
+  transform: translateX(58px);
 }
+
+
+/*------ ADDED CSS ---------*/
+.on
+{
+  display: none;
+}
+
+.on, .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+/*--------- END --------*/
+
 
 /* Rounded sliders */
 .slider.round {
