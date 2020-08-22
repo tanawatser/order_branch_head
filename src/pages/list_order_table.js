@@ -7,8 +7,9 @@ import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
 export default class list_order_table extends Component {
   constructor(props){
     super(props);
+  
     this.myGrid = React.createRef(JqxGrid);
-
+    
     const source =
     {
         datafields: [
@@ -22,6 +23,7 @@ export default class list_order_table extends Component {
         localdata:this.props.data
     };
     this.state = {
+
         columns:[
             { text:'รหัสสาขา',datafield:'branch_id', width: '10%', align: 'center',cellsalign:'center',editable:false},
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
@@ -60,7 +62,7 @@ export default class list_order_table extends Component {
                 datafield: "delete",
            
                 cellsrenderer: () => {
-                  return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
+                  return '<div class="container"><div class="center"><button onClick={this.deleteData(data.r)} class="btn" ><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
                 },
                 width: "4%",
                 editable: false,
@@ -72,8 +74,20 @@ export default class list_order_table extends Component {
         source: new jqx.dataAdapter(source),
         config:[]
     }
+    this.deleteData=this.deleteData.bind(this)
     this.onCellclick=this.onCellclick.bind(this)
   }
+
+  // componentDidMount() {
+  //   this.getDataOrder();
+  // }
+
+  // deleteTable=(r)=>  {
+  //     this.setState(prevState => ({
+  //       dataOrder: prevState.dataOrder.filter(data => data.r !== r)
+  //     }));
+  //   };
+  
 
   onCellclick = (e) => {
     if(e.args.datafield==='edit'){
@@ -83,17 +97,23 @@ export default class list_order_table extends Component {
     }else if(e.args.datafield==='confirm'){
 
       alert('confirm');
-
-    }else if(e.args.datafield==='delete'){
-
-      alert('delete');
       
     }else if(e.args.datafield==='pic'){
+      alert('Image');
       
-    }
+     }
+}
 
-  }
+deleteData(r) {
+  return () => {
+    this.setState(prevState => ({
+      columns: prevState.columns.filter(data => data.r !== r)
+    }));
+  };
+}
+    
   render(){
+    console.log(this.state);
     return (
       <>
       <center>
@@ -102,25 +122,19 @@ export default class list_order_table extends Component {
                     width='100%'
                     height="700px"
                     source={this.state.source}
-
                     pageable={true}
                     pagesize={20}
-
                     autoheight={false}
-
                     columns={this.state.columns}
                     theme="material"
-
                     editable={false}
                     enabletooltips={false}
                     selectionmode={'singlecell'}
                     editmode={'click'}
                     columnsresize={false}
                     sortable={true}
-
                     filterable={true}
                     showfilterrow={true}
-
                     onCellclick={this.onCellclick}
                 />
         </center>

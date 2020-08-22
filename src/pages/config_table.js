@@ -34,7 +34,7 @@ export default class ConfigTable extends Component {
               datafield: "checkStatus",
          
               cellsrenderer: () => {
-                return '<div class="box-toggle"><label class="switch"><input type="checkbox" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">ON</span><span class="off">OFF</span><!--END--></div></label></div>';
+                return '<div class="box-toggle"><label class="switch"><input type="checkbox" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">เปิด</span><span class="off">ปิด</span><!--END--></div></label></div>';
               
               },
               width: "25%",

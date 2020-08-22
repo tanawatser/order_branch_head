@@ -96,7 +96,7 @@ hr.line {
 .box-toggle {
   margin: 0;
   position: absolute;
-  top: 60%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -154,6 +154,7 @@ input:checked + .slider:before {
 .on
 {
   display: none;
+
 }
 
 .on, .off
@@ -163,8 +164,7 @@ input:checked + .slider:before {
   transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
-  font-size: 10px;
-  font-family: Verdana, sans-serif;
+  font-size:12px
 }
 
 input:checked+ .slider .on
