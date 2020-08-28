@@ -112,7 +112,7 @@ export default class Loginbranch extends Component {
                   className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5"
                 >
                   <center>
-                    <img className="img-logo" src={Logo} />
+                    <img className="img-logo" src={Logo} alt="" />
                   </center>
                 </MDBAnimation>
 

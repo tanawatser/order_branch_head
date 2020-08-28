@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import JqxGrid, { jqx } from "jqwidgets-scripts/jqwidgets-react-tsx/jqxgrid";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
@@ -41,7 +40,7 @@ componentWillMount()
              </tr>
           </table>
         </div>
-        <img className="img-main" src={bgMain} />
+        <img className="img-main" src={bgMain}  alt="" />
       </>
     );
   }

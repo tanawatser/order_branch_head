@@ -5,7 +5,7 @@ import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
 import "../Style/Orderstyle.css"
 
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 export default class Order_table extends Component {
   constructor(props){

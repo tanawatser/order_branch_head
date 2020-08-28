@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { MDBInput, MDBBtn, MDBContainer, MDBRow, MDBCol } from "mdbreact";
-
-import Table from './category_table'
+import { MDBInput, MDBBtn,MDBRow, MDBCol } from "mdbreact";
 import GroupTable from "./group_table";
-import { Container } from "@material-ui/core";
 
 export default class Category extends Component {
   constructor(props) {

@@ -4,7 +4,7 @@ import "jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
 
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 export default class GroupTable extends Component {
     constructor(props) {
@@ -68,18 +68,16 @@ export default class GroupTable extends Component {
 configFuncPopup(e) {
     if(e.args.datafield ==='setting'){
 
-        fetch("http://172.18.9.55:3200/POB019")
+      fetch("http://172.18.9.55:3200/POB019")
       .then((res) => res.json())
       .then((re) => {
         this.setState({ configData: re });
         console.log(re)
-      })
-      .catch((error) => console.log(error));
+      }).catch((error) => console.log(error));
       
-        this.setState({
-            popup : true
-            
-          });
+      this.setState({
+        popup : true
+      });
 
 
 
@@ -118,17 +116,15 @@ configFuncPopup(e) {
                     onCellclick={this.configFuncPopup}
                 />
 
-                <MDBModal isOpen={this.state.popup}>
+                <MDBModal isOpen={this.state.popup} toggle={()=>this.setState({popup:true})}>
                     <MDBModalHeader>แก้ไขประเภท</MDBModalHeader>
 
                     <MDBModalBody>
-                    {/* {this.state.configData.map((data , key) => (
+                    {this.state.configData.map((data , key) => (
                         <div key={key}> 
-                        <p>data : {data.cat_id}</p>
-                        
-                        
+                        <p>[{data.cat_id}] : {data.cat_name}</p>
                         </div>
-                    ))} */}
+                    ))}
                     </MDBModalBody>
 
                     <MDBModalFooter>

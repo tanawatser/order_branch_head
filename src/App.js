@@ -30,9 +30,11 @@ export default class App extends Component {
   state = {
     isOpen: false,
   };
+  
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
   render() {
     return (
       <>
@@ -59,15 +61,7 @@ export default class App extends Component {
 
                   <MDBNavbarNav right>
                     <MDBNavItem>
-                      <div style={{ color: "white" }}>
-                        <img
-                          className="rounded-circle"
-                          src={this.state.img}
-                          class="rounded-circle z-depth-0"
-                          alt="avatar image"
-                          height="40"
-                        />
-                      </div>
+                        <img src={this.state.img} className="rounded-circle z-depth-0" alt="" height="40" />
                     </MDBNavItem>
                     &nbsp;&nbsp;&nbsp;
                     <MDBNavItem>
