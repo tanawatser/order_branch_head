@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./Routes";
-
 import Login from "./pages/login";
-
 import Auth from "./component/authlogin";
 import Logo from "./assets/jib-logo-white2.png";
 import {
@@ -17,9 +15,6 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBIcon,
-  MDBFooter,
-  MDBContainer,
   MDBNavbarToggler,
   MDBCollapse,
 } from "mdbreact";
@@ -28,6 +23,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.Auth = new Auth();
+    this.state={
+      img:"http://172.18.0.30/JIBHR/img_hr/"+localStorage.getItem('img')+".JPG"
+    }
   }
   state = {
     isOpen: false,
@@ -57,12 +55,14 @@ export default class App extends Component {
                   navbar
                 >
               
+
+
                   <MDBNavbarNav right>
                     <MDBNavItem>
                       <div style={{ color: "white" }}>
                         <img
                           className="rounded-circle"
-                          src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+                          src={this.state.img}
                           class="rounded-circle z-depth-0"
                           alt="avatar image"
                           height="40"
@@ -71,7 +71,7 @@ export default class App extends Component {
                     </MDBNavItem>
                     &nbsp;&nbsp;&nbsp;
                     <MDBNavItem>
-                      <MDBNavLink to="#!">สวัสดี ,</MDBNavLink>
+                      <MDBNavLink to="#!" >สวัสดี</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
                       <MDBDropdown>
@@ -90,6 +90,7 @@ export default class App extends Component {
                           </MDBDropdownItem>
                           <MDBDropdownItem
                             onClick={() => {
+                              localStorage.removeItem('img')
                               this.Auth.logout();
                               window.location.reload();
                             }}

@@ -4,112 +4,84 @@ import "jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
 
+
+// Page หลังจากกดแก้ไขประเภท
 export default class Table extends Component {
   constructor(props){
     super(props);
+   
     this.myGrid = React.createRef(JqxGrid);
 
     const source =
     {
         datafields: [
-            { name:'branch_id', type:'string'},
-            { name:'product_id', type:'string'},
-            { name:'product_name', type:'string'},
-            { name:'product_type', type:'string'},
-            { name:'product_count', type:'number'},
+            { name:'cat_id', type:'string'},
+            { name:'cat_name', type:'string'},
+            { name:'count_pd', type:'string'},
+
+        
         ],
         datatype: 'array',
-        localdata:this.props.data
+        localdata:this.props.data,
+
     };
+    
     this.state = {
         columns:[
-            { text:'รหัสสาขา',datafield:'branch_id', width: '10%', align: 'center',cellsalign:'center',editable:false},
-            { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
-            { text:'ชื่อสินค้า',datafield:'product_name', width: '40%', align: 'center',cellsalign:'left',editable:false},
-            { text:'ประเภทสินค้า',datafield:'product_type', width: '17%', align: 'center',cellsalign:'center',editable:false},
-            { text:'จำนวนในการสั่งสูงสุด',datafield:'product_count', width: '10%', align: 'center',cellsalign:'center',editable:false},
+            { text:'รหัสสินค้า',datafield:'cat_id', width: '10%', align: 'center',cellsalign:'center',},
+            { text:'ชื่อสินค้า',datafield:'cat_name', width: '60%', align: 'center',cellsalign:'center',},
             {
-              text: "แก้ไข",
-              datafield: "edit",
+              text: "สถานะการใช้งาน",
+              datafield: "checkBox",
          
               cellsrenderer: () => {
-                return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-cogs" aria-hidden="true"></i></button></div><div>';
+                
+                return '<div class="container"><div class="center"><input type="checkbox"></div></div>';
+              
               },
-              width: "4%",
+              width: "20%",
               editable: false,
               sortable: false,
               filterable: false,
               align: "center",
             },
-            {
-              text: "ลบรายการ",
-              datafield: "delete",
-         
-              cellsrenderer: () => {
-                return '<div class="container"><div class="center"><button class="btn"><i class="fa fa-trash" aria-hidden="true"></i></button></div><div>';
-              },
-              width: "4%",
-              editable: false,
-              sortable: false,
-              filterable: false,
-              align: "center",
-            },
+            { text:'จำนวนสินค้า',datafield:'count_pd', width: '10%', align: 'center',cellsalign:'center',filterable:false,editable:true},
+
+            
         ],
+    
         source: new jqx.dataAdapter(source),
-        config:[]
-    }
-    this.onCellclick=this.onCellclick.bind(this)
-  }
+        config:[],
 
-  onCellclick = (e) => {
-    if(e.args.datafield==='edit'){
-      alert('edit');
-      console.log(e.args.row.bounddata);
-
-    }else if(e.args.datafield==='confirm'){
-
-      alert('confirm');
-
-    }else if(e.args.datafield==='delete'){
-
-      alert('delete');
-      
-    }else if(e.args.datafield==='pic'){
-      
+       
     }
 
   }
+  
   render(){
+    
     return (
       <>
-      <center>
                 <JqxGrid
                     ref={this.myGrid}
                     width='100%'
                     height="700px"
                     source={this.state.source}
-
                     pageable={true}
                     pagesize={20}
-
                     autoheight={false}
-
                     columns={this.state.columns}
                     theme="material"
-
                     editable={false}
                     enabletooltips={false}
                     selectionmode={'singlecell'}
                     editmode={'click'}
                     columnsresize={false}
                     sortable={true}
-
                     filterable={true}
                     showfilterrow={true}
-
-                    onCellclick={this.onCellclick}
+                 
                 />
-        </center>
       </>
     );
   }

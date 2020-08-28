@@ -3,6 +3,7 @@ import JqxGrid, { jqx } from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxgrid';
 import "jqwidgets-scripts/jqwidgets/styles/jqx.base.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 import "../Style/Branchlimittable.css"
 
@@ -24,6 +25,7 @@ export default class Table extends Component {
         localdata:this.props.data
     };
     this.state = {
+      modal: false,
         columns:[
             { text:'รหัสสาขา',datafield:'branch_id', width: '10%', align: 'center',cellsalign:'center',editable:false},
             { text:'รหัสสินค้า',datafield:'product_id', width: '15%', align: 'center',cellsalign:'center',editable:false},
@@ -61,27 +63,47 @@ export default class Table extends Component {
         config:[]
     }
     this.onCellclick=this.onCellclick.bind(this)
+    // this.deleteData = this.deleteData.bind(this);
   }
 
   onCellclick = (e) => {
     if(e.args.datafield==='edit'){
-      alert('edit');
-      console.log(e.args.row.bounddata);
+    // alert('edit');
+    // console.log(e.args.row.bounddata);
+    this.setState({
+      modal: !this.state.modal
+    });
 
-    }else if(e.args.datafield==='confirm'){
+    } else if(e.args.datafield==='delete'){
 
-      alert('confirm');
-
-    }else if(e.args.datafield==='delete'){
-
-      alert('delete');
-      
+      this.setState({
+        modal: !this.state.modal
+      });
     }
 
+    // deleteData=(d)=> {
+    //   return () => {
+    //     this.setState(prevState => ({
+    //       columns: prevState.columns.filter(data => data.d !== d)
+    //     }));
+    //   };
+    // }
   }
+  
   render(){
     return (
       <>
+
+<MDBModal isOpen={this.state.modal} onCellclick={this.onCellclick}>
+        <MDBModalHeader onCellclick={this.onCellclick}>MDBModal title</MDBModalHeader>
+        <MDBModalBody>
+          (...Content...)
+        </MDBModalBody>
+        <MDBModalFooter>
+          <MDBBtn color="primary">Save</MDBBtn>
+          <MDBBtn color="danger" onClick={this.onCellclick}>Close</MDBBtn>
+        </MDBModalFooter>
+      </MDBModal>
       <center>
                 <JqxGrid
                     ref={this.myGrid}

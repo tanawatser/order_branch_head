@@ -5,6 +5,7 @@ import "jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css";
 import "jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css";
 import "../Style/Orderstyle.css"
 
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 export default class Order_table extends Component {
   constructor(props){
@@ -20,7 +21,7 @@ export default class Order_table extends Component {
             { name:'product_type', type:'string'},
             { name:'product_stock', type:'number'},
             { name: 'product_limit', type: 'number' },
-            { name: 'product_img'}
+     
      
 
         ],
@@ -28,14 +29,15 @@ export default class Order_table extends Component {
         localdata:this.props.data
     };
     this.state = {
+      modal: false,
         columns:[
           {
             text: "Image",
             datafield: "img",
             cellsrenderer: () => {
               
-              return '<div class="container"><div class="center"><button class="btn" style="width:190px"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
-              
+                return '<div class="container"><div class="center"><button class="btn" style="width:190px"><i class="fa fa-camera" aria-hidden="true"></i></button></div></div>';
+  
             },
             width: "5%",
             editable: false,
@@ -87,7 +89,17 @@ export default class Order_table extends Component {
         config:[]
     }
     this.onCellclick=this.onCellclick.bind(this)
+    this.toggle=this.toggle.bind(this)
   }
+
+  toggle = (e) => {
+    if (e.args.datafield==='img') {
+      console.log(e.args.row.bounddata.img)
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+}
 
   onCellclick = (e) => {
     if(e.args.datafield==='buy'){
@@ -105,17 +117,24 @@ export default class Order_table extends Component {
         this.myGrid.current.setcellvalue(e.args.rowindex,'product_stock',remainStock)
         
       }
-
-    }else if(e.args.datafield==='img'){
-
-      alert('Image');
-
     }
 
   }
   render(){
     return (
       <>
+
+      
+<MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+        <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader>
+        <MDBModalBody>
+          (...Content...)
+        </MDBModalBody>
+        <MDBModalFooter>
+          <MDBBtn color="primary">Save</MDBBtn>
+          <MDBBtn color="danger" onClick={this.toggle}>Close</MDBBtn>
+        </MDBModalFooter>
+      </MDBModal>
       <center>
                 <JqxGrid
                     ref={this.myGrid}
@@ -136,6 +155,8 @@ export default class Order_table extends Component {
                     filterable={true}
                     showfilterrow={true}
                     onCellclick={this.onCellclick}
+                    toggle={this.toggle}
+
                     rowsheight={40}
 
                 />

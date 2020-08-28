@@ -74,7 +74,7 @@ export default class Loginbranch extends Component {
             alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
           } else {
             window.location.href = "/";
-
+            localStorage.setItem('img',this.state.username);
             this.setState({ chkBg: true }, () => {
               console.group("Value login");
               console.log(this.state.chkBg);

@@ -1,52 +1,141 @@
-import React, { Component } from 'react';
-import {
-    MDBInput,
-    MDBBtn
-  } from "mdbreact";
-  
+import React, { Component } from "react";
+import { MDBInput, MDBBtn, MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 import Table from './category_table'
-export default class Category extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      data:[
-        { branch_id:18, product_id:'3008526218',product_name:'VGA (การ์ดแสดงผล) MSI GTX1660 VENTUS XS 6G OC ',product_type:'Graphic Card',product_count:8},
-        { branch_id:25, product_id:'0199002871',product_name:'CPU (ซีพียู) AMD AM4 RYZEN9 3950X 3.5 GHz',product_type:'CPU',product_count:2},
-        { branch_id:1000, product_id:'0201038090',product_name:'MAINBOARD (เมนบอร์ด) AM4 ASROCK B550 STEEL LEGEND',product_type:'Mainboard',product_count:3},
-        { branch_id:524, product_id:'0320550472',product_name:'16GB (8GBx2) DDR4/3200 RAM PC (แรมพีซี) ',product_type:'RAM For PC',product_count:5},
-        { branch_id:136, product_id:'2310392949',product_name:'POWER SUPPLY (อุปกรณ์จ่ายไฟ) ANTEC 650W ATOM B650 (80+ BRONZE)',product_type:'Power Supply',product_count:7},
-      ]
-    }
+import GroupTable from "./group_table";
+import { Container } from "@material-ui/core";
 
+export default class Category extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoad1: false,
+      isLoad2: false,
+      data: [],
+      group: [],
+      newGroup: "",
+    };
+    this.submitData = this.submitData.bind(this);
   }
 
-  render(){
-    return (
-        <>
-        <br/>
+  componentDidMount() {
+    this.getData();
+    this.getGroup();
+  }
+
+  getData() {
+    fetch("http://172.18.9.55:3200/POB019")
+      .then((res) => res.json())
+      .then((re) => {
+        this.setState({ isLoad1: true, data: re });
+      })
+      .catch((error) => console.log(error));
+  }
+
+  getGroup() {
+    fetch("http://172.18.9.55:3200/GetGroup")
+      .then((res) => res.json())
+      .then((re) => {
+        this.setState({ isLoad2: true, group: re });
+      })
+      .catch((error) => console.log(error));
+  }
+
+  submitData() {
+    if (this.state.newGroup !== "") {
+      fetch("http://172.18.9.55:3200/InsertGroup", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Name_Group: this.state.newGroup,
+        }),
+      })
+        .then((res) => res.json())
+        .then((re) => {
+          // if(window.confirm('Success')) {
+          if (re.status) {
+            alert("เพิ่มกลุ่มสินค้าเรียบร้อย");
+            window.location.reload();
+          } else {
+            alert("Error");
+          }
+        });
+    } else {
+      alert("Error");
+    }
+  }
+  render() {
+    if (!this.state.isLoad1 || !this.state.isLoad2) {
+      return (
         <center>
-        <h3>เพิ่ม Category</h3>
-        <table>
-        <tr>
-             <th>  
-               <MDBInput label="รหัส Category" group type="text" success="right" outline/>
-              </th>
-  
-             <th>  
-                    <MDBInput label="ชื่อ Category" group type="text" success="right" outline/>
-                    </th>
-    
-             <th> 
-                    <MDBBtn color="success">เพิ่ม</MDBBtn>
-                    </th>
-        </tr>
-            </table>
-       <br/>
+          <h1>Loadding....</h1>
         </center>
+      );
+    } else {
+      return (
+        <>
+      
         
-        <Table data={this.state.data} />
+      <MDBRow>
+            <MDBCol>
+              <center>
+            
+
+              <br />
+          <h3>สร้างกลุ่มสินค้า</h3>
+          <table>
+            <tr>
+              <th>
+                <MDBInput
+                  label="ชื่อกลุ่มสินค้า"
+                  group type="text"
+                  onChange={(e) => {
+                    this.setState({ newGroup: e.target.value });
+                  }}
+                  value={this.state.newGroup}
+                  success="right"
+                  outline
+                />
+              </th>
+
+              <th>
+                <MDBBtn
+                  type="submit"
+                  value="submit"
+                  color="success"
+                  onClick={this.submitData}
+                  style={{ height: "40px" }}
+                > สร้าง </MDBBtn>
+              </th>
+            </tr>
+
+          </table>
+          </center>
+          </MDBCol>
+
+          <MDBCol> 
+          {" "}
+          </MDBCol>
+          </MDBRow>
+          <br />
+                  
+          <MDBRow>
+            <MDBCol> 
+            {" "}
+              <GroupTable data={this.state.group} />
+            </MDBCol>
+
+            <MDBCol>
+            {" "}
+        
+            </MDBCol>
+
+          </MDBRow>
         </>
-    );
+      );
+    }
   }
 }

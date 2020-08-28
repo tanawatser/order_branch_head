@@ -5,7 +5,6 @@ import Main from './pages/main'
 
 import List from './pages/list'
 import Order from './pages/order'
-
 import Config from './pages/config'
 import Branch_limit from './pages/branch_limit'
 import Product_limit from './pages/product_limit'
@@ -13,6 +12,7 @@ import Category from './pages/category'
 import Stock from './pages/stock_branch'
 import Settingtime from './pages/Settingtime'
 import Listorder from "./pages/list_order"
+import ConfigType from "./pages/config_type_page"
 
 export default class Routes extends React.Component {
   render() {
@@ -28,6 +28,8 @@ export default class Routes extends React.Component {
         <Route exact path='/stock' component={Stock} />
         <Route exact path='/time' component={Settingtime} />
         <Route exact path='/listorder' component={Listorder} />
+        <Route exact path='/configtype' component={ConfigType} />
+
         <Route
           render={function() {
             return <h1>Not Found</h1>;
